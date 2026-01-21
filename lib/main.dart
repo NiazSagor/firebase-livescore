@@ -3,7 +3,11 @@ import 'package:firebase_livescore/auth_gate.dart';
 import 'package:firebase_livescore/firebase_options.dart';
 import 'package:firebase_livescore/viewmodels/match_viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; // For State Management
+import 'package:provider/provider.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+
+final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+final FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
 void main() async {
   // 1. Ensure Flutter bindings are initialized
@@ -28,6 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CricDash Live',
+      navigatorObservers: [observer],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
