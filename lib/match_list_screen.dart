@@ -1,3 +1,4 @@
+import 'package:firebase_livescore/live_score_screen.dart';
 import 'package:firebase_livescore/models/match_model.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -52,7 +53,7 @@ class MatchListScreen extends StatelessWidget {
                     ],
                   ),
                   subtitle: Padding(
-                    padding: const EdgeInsets.top(8.0),
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text("Status: ${match.status.label}"),
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),

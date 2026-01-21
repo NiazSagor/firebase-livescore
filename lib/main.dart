@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_livescore/auth_gate.dart';
+import 'package:firebase_livescore/db/database_seeder.dart';
 import 'package:firebase_livescore/firebase_options.dart';
 import 'package:firebase_livescore/viewmodels/match_viewmodel.dart';
 import 'package:flutter/foundation.dart';
@@ -16,6 +17,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  //await DatabaseSeeder.seedMatches();
 
   // FlutterError.onError = (errorDetails) {
   //   FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);

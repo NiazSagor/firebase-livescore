@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_livescore/live_score_screen.dart';
+import 'package:firebase_livescore/match_list_screen.dart';
 import 'package:firebase_livescore/viewmodels/match_viewmodel.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
@@ -23,7 +24,7 @@ class AuthGate extends StatelessWidget {
 
         // 2. User is NOT logged in - Show Predefined Firebase UI
         if (!snapshot.hasData) {
-          return LiveScoreScreen(viewModel: context.watch<MatchViewModel>());
+          return MatchListScreen();
           return SignInScreen(
             providers: [
               EmailAuthProvider(),
@@ -57,7 +58,7 @@ class AuthGate extends StatelessWidget {
         }
 
         // 3. User IS logged in - Show the Match Data
-        return LiveScoreScreen(viewModel: context.watch<MatchViewModel>());
+        return MatchListScreen();
       },
     );
   }
