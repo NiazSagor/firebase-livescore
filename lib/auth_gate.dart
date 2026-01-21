@@ -23,7 +23,7 @@ class AuthGate extends StatelessWidget {
 
         // 2. User is NOT logged in - Show Predefined Firebase UI
         if (!snapshot.hasData) {
-          //return LiveScoreScreen(viewModel: context.watch<MatchViewModel>());
+          return LiveScoreScreen(viewModel: context.watch<MatchViewModel>());
           return SignInScreen(
             providers: [
               EmailAuthProvider(),

@@ -5,6 +5,7 @@ import 'package:firebase_livescore/firebase_options.dart';
 import 'package:firebase_livescore/viewmodels/match_viewmodel.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 
@@ -16,20 +17,19 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  FlutterError.onError = (errorDetails) {
-    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-  };
+  // FlutterError.onError = (errorDetails) {
+  //   FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  // };
+  //
+  // PlatformDispatcher.instance.onError = (error, stack) {
+  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //   return true;
+  // };
 
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
+  await MobileAds.instance.initialize();
 
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => MatchViewModel(matchId: "match_1"),
-      child: const MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
