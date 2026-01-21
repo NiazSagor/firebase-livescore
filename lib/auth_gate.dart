@@ -24,7 +24,7 @@ class AuthGate extends StatelessWidget {
 
         // 2. User is NOT logged in - Show Predefined Firebase UI
         if (!snapshot.hasData) {
-          return MatchListScreen();
+          // return MatchListScreen();
           return SignInScreen(
             providers: [
               EmailAuthProvider(),
